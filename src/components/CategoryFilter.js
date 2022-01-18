@@ -1,22 +1,21 @@
 import React from "react";
 
-function CategoryFilter({categories, handleClickCat}) {
-  // const [isSelected, setIsSelected] = useState(false)
+function CategoryFilter({categories, handleClickCat, clickCat}) {
 
   function handleClick(e) {
     console.log(e.target)
     const textContent = e.target.textContent
     handleClickCat(textContent)
-    // setIsSelected(!isSelected)
-    e.target.className = 'selected'
 
   }
+  
   return (
     <div className="categories">
       <h5>Category filters</h5>
       {categories.map(category => {
+        const className = (clickCat === category) ? 'selected' : ''
         return (
-          <button key={category} onClick={handleClick} >{category}</button>
+          <button className={className} key={category} onClick={handleClick} >{category}</button>
         )
       })}
     </div>

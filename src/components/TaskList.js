@@ -12,7 +12,7 @@ function TaskList({tasks, catValue, setRemove}) {
 
   function handleClick(e) {
     const name = e.target.parentElement.childNodes[1].textContent
-    const deleted = filtered.filter(task => task.text !== name)
+    const deleted = tasks.filter(task => task.text !== name)
     setRemove(deleted)
   }
 

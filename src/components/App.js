@@ -19,16 +19,12 @@ function App() {
     setTasks(newItem)
   }
 
-  function setRemove(item) {
-    setTasks(item)
-  }
-
   return (
     <div className="App">
       <h2>My tasks</h2>
-      <CategoryFilter categories={CATEGORIES}  handleClickCat={handleClickCat} />
+      <CategoryFilter categories={CATEGORIES} handleClickCat={handleClickCat} clickCat={clickCat} />
       <NewTaskForm categories={CATEGORIES} tasks={tasks} onTaskFormSubmit={handleTask} />
-      <TaskList tasks={tasks} catValue={clickCat} setRemove={setRemove}  />
+      <TaskList tasks={tasks} catValue={clickCat} setRemove={handleTask}  />
     </div>
   );
 }
